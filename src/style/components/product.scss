@@ -1,0 +1,17 @@
+.product-item {
+  border-color: #ccc;
+  min-height: max-content;
+  height: 500px;
+  .item-image {
+    object-fit: cover;
+  }
+  .item-title {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .item-description {
+    font-size: 12px;
+    text-transform: lowercase;
+  }
+}
