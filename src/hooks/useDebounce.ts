@@ -8,7 +8,7 @@ const useDebounce = (keyword: string) => {
   React.useEffect(() => {
     if (typingRef.current) clearTimeout(typingRef.current);
 
-    typingRef.current = setTimeout(() => setDebounce(keyword), 1000);
+    typingRef.current = setTimeout(() => setDebounce(keyword), 800);
   }, [keyword]);
 
   return debounce;

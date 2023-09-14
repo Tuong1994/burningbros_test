@@ -6,13 +6,12 @@ import ProductItem from "./Item";
 
 interface ProductsProps {
   loading: boolean;
-  error: boolean;
   hasMore: boolean;
   products: IProduct[];
   setLimit: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Products: React.FC<ProductsProps> = ({ loading, error, hasMore, products, setLimit }) => {
+const Products: React.FC<ProductsProps> = ({ loading, hasMore, products, setLimit }) => {
   const observer = React.useRef<IntersectionObserver>();
 
   const lastElementRef = React.useCallback(
@@ -52,8 +51,6 @@ const Products: React.FC<ProductsProps> = ({ loading, error, hasMore, products, 
       {products.length > 0 ? <Row gutter={[15, 15]}>{renderProducts()}</Row> : <Empty />}
 
       {loading && <Loading />}
-
-      {error && <Empty />}
     </React.Fragment>
   );
 };

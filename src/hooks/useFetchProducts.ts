@@ -18,6 +18,8 @@ const useFetchProducts = (query: IQuery) => {
 
   const [products, setProducts] = React.useState<IProduct[]>([]);
 
+  const [totalItems, setTotalItems] = React.useState<number>(0);
+
   const getProducts = async () => {
     setLoading(true);
 
@@ -31,6 +33,8 @@ const useFetchProducts = (query: IQuery) => {
       const total = res.data.total ? res.data.total : 0;
 
       setHasMore(data.length < total);
+
+      setTotalItems(total);
 
       setProducts([...data]);
     } catch (error) {
@@ -54,6 +58,8 @@ const useFetchProducts = (query: IQuery) => {
 
       setHasMore(data.length < total);
 
+      setTotalItems(total);
+
       setProducts([...data]);
     } catch (error) {
       setError(true);
@@ -67,13 +73,12 @@ const useFetchProducts = (query: IQuery) => {
   }, [limit, q]);
 
   React.useEffect(() => {
-    if (q) {
-      setProducts([]);
-      searchProducts();
-    }
+    if (products.length > 0) setProducts([]);
+
+    if (q) searchProducts();
   }, [q]);
 
-  return { loading, error, hasMore, products };
+  return { loading, error, hasMore, products, totalItems };
 };
 
 export default useFetchProducts;
