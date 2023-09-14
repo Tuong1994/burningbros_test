@@ -20,6 +20,7 @@ const useFetchProducts = (query: IQuery) => {
 
   const [totalItems, setTotalItems] = React.useState<number>(0);
 
+  // Fetch products
   const getProducts = async () => {
     setLoading(true);
 
@@ -44,6 +45,7 @@ const useFetchProducts = (query: IQuery) => {
     setLoading(false);
   };
 
+  // Search products
   const searchProducts = async () => {
     setLoading(true);
 

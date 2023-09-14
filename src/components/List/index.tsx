@@ -14,6 +14,7 @@ interface ProductsProps {
 const Products: React.FC<ProductsProps> = ({ loading, hasMore, products, setLimit }) => {
   const observer = React.useRef<IntersectionObserver>();
 
+  // Increased limit by 20 when scroll to last product
   const lastElementRef = React.useCallback(
     (node: HTMLDivElement) => {
       if (loading) return;

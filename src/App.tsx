@@ -1,14 +1,12 @@
 import React from "react";
-import { message, Typography, Row, Col } from "antd";
+import { message } from "antd";
 import Title from "./components/Title";
 import SearchInput from "./components/SearchInput";
 import Products from "./components/List";
+import Note from "./components/Note";
 import useFetchProducts from "./hooks/useFetchProducts";
 import useDebounce from "./hooks/useDebounce";
 import "./style/main.scss";
-import Note from "./components/Note";
-
-const { Paragraph } = Typography;
 
 function App() {
   const [messageApi, contextHolder] = message.useMessage();
