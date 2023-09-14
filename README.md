@@ -13,6 +13,7 @@ or
 - interface
 - hooks
 - components
+- utils
 - api
   - path 
 - styles
